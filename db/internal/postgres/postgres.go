@@ -51,7 +51,7 @@ func NewPostgresDB(cfg Config) (*sqlx.DB, error) {
 }
 
 func (pg *PostgresDB) CreateTables() error {
-	_, err := pg.db.Exec(`CREATE TABLE dog (
+	_, err := pg.db.Exec(`CREATE TABLE IF NOT EXISTS dog (
     	id SERIAL PRIMARY KEY,
     	fileName TEXT NOT NULL,
     	likes INT NOT NULL
