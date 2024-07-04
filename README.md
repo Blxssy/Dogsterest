@@ -6,4 +6,5 @@
 ```make clean``` для остановки приложения
 
 
-<img src="img/dog.png">
+<img src="img/dog1.png">
+<img src="img/dog2.png">
