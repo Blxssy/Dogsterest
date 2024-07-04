@@ -32,7 +32,7 @@ export class DogService {
           endsWith: '.jpg',
         },
       },
-      take: 10,
+      take: 40,
     });
   }
 
