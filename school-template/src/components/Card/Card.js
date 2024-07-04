@@ -4,7 +4,17 @@ import CardActions from "@mui/material/CardActions";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 
-export default function MediaCard({ img, likes }) {
+export default function MediaCard({ id, img, likes }) {
+    const handleLike = async () => {
+        try {
+            const response = await fetch(`http://localhost:3001/dog/${id}`, {
+                method: "PATCH",
+            });
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -13,7 +23,7 @@ export default function MediaCard({ img, likes }) {
         title="green iguana"
       />
       <CardActions>
-        <Button size="small">👍🏻 Like</Button>
+        <Button size="small" onClick={handleLike}>👍🏻 Like</Button>
         {likes}
         <span>likes</span>
       </CardActions>

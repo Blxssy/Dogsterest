@@ -3,7 +3,7 @@
 all: go_bd nest_server react_app
 
 go_bd:
-	cd bd/cmd && go run main.go &
+	cd bd/cmd/ && go run main.go &
 
 nest_server:
 	cd backend && npm install && npm run start &

@@ -15,6 +15,16 @@ export class DogService {
   //   return dog;
   // }
 
+  async GetById(id: number) {
+    const dog = await this.prisma.dog.findUnique({
+      where: {
+        id: +id,
+      },
+    });
+    if (!dog) throw new NotFoundException('dog not found');
+    return dog;
+  }
+
   async GetDogs() {
     return this.prisma.dog.findMany({
       where: {
@@ -23,6 +33,18 @@ export class DogService {
         },
       },
       take: 10,
+    });
+  }
+
+  async like(id: number) {
+    const dog = await this.GetById(id);
+    return this.prisma.dog.update({
+      where: {
+        id: +dog.id,
+      },
+      data: {
+        likes: dog.likes + 1,
+      },
     });
   }
 }

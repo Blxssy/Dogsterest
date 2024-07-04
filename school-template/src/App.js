@@ -41,7 +41,7 @@ function App() {
               // console.log(dog.id, 'id')
               // console.log(dog.filename, 'file')
               return (
-                  <MediaCard key={dog.id} likes={dog.likes} img={imageUrl}/>
+                  <MediaCard key={dog.id} id={dog.id} likes={dog.likes} img={imageUrl}/>
               );
             })}
 
